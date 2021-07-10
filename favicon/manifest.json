@@ -1,0 +1,35 @@
+{
+  "name": "arras.io",
+  "theme_color": "#8abc3f",
+  "background_color": "#484948",
+  "description": "Arras.io is a fan-made sequel of diep.io! Survive and shoot at others while keeping your own tank alive!",
+  "orientation": "landscape",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "icons": [{
+    "src": "96x96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "128x128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }, {
+    "src": "256x256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }, {
+    "src": "512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }, {
+    "src": "base.svg",
+    "sizes": "400x400",
+    "type": "image/svg+xml"
+  }]
+}
