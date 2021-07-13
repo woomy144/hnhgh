@@ -1,0 +1,328 @@
+<!doctype html>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+<head>
+	<!-- Meta Properties -->
+	<meta charset="UTF-8">
+	<title>Acorent.io</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/main.css">
+	<!-- Version Control -->
+	<!--
+    <script>
+        var VERSION = localStorage.getItem('versionHash');
+        (function versionControl() {
+            let request = new XMLHttpRequest();
+            let url = window.location.href + "/api/vhash";
+            console.log("Checking version...");
+            return new Promise((resolve, reject) => {
+                request.open('GET', url);
+                request.onload = () => { resolve(request.response); console.log('Version check successful.'); };
+                request.onerror = () => { reject(request.statusText); console.log('Version check failed.'); console.log(request.statusText); };
+                request.send();
+            });
+        })().then(function resolveVersion(data) {
+            localStorage.setItem('versionHash', data);
+            if (VERSION !== data) {
+                console.log("Updating!");   
+                localStorage.setItem('updated', 'datgudshit');
+                location.reload(true);
+            }
+        });
+    </script>
+    -->
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57-2d85f5e997.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60-05ef2c90ed.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72-4858cb35f5.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76-47a200292b.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114-7f286d07de.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120-40fe07d6c2.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144-51873498fe.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152-e84420f50c.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180-4b277cdba4.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192-64241a1f66.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32-74b09e5f18.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96-90e2011464.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16-21c8514b22.png">
+	<link rel="manifest" href="/favicons/manifest-b58fcfa762.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144-51873498fe.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+
+<body oncontextmenu="return false;" id="mainBody">
+	<div id="gameAreaWrapper">
+		<canvas id="gameCanvas" tabindex="1" id="cvs" tabindex="1"></canvas>
+	</div>
+	<div id="mainWrapper">
+		<div id="startMenuWrapper">
+			<div id="startMenu">
+				<div class="startMenuHolder">
+					<iframe src="https://canary.discord.com/widget?id=845295340818399283&theme=dark" width="350" height="315" allowtransparency="true"
+					 frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+					<div id="bottomHolder">
+						<a style="background: linear-gradient(135deg, #e66465, #9198e5); width: 336px; margin-top: 3px" href="https://discord.gg/Qb5fcctwRQ"
+						 target="_blank">Discord</a>
+					</div>
+				</div>
+				<div class="startMenuHolder">
+					<div class="sliderHolder">
+						<div class="slider" id="startMenuSlidingContent">
+							<center><img src="https://cdn.discordapp.com/attachments/783206543734472704/848252055625007104/unknown.png"></center>
+              <h1 class="kool">Acorent.io</h1>
+              <div class="serverSelector shadowScroll">
+                <table>
+                  <tbody id="serverSelector"></tbody>
+                </table>
+              </div>
+              <input type="text" autofocus tabindex="1" spellcheck="false" placeholder="This is the tale of:" id="playerNameInput" maxlength="24">
+              <input type="text" class="conceal" tabindex="3" placeholder="Token required." id="playerKeyInput" maxlength="64">
+            </div>
+            <div class="slider pointer" id="startMenuSlidingTrigger"><h3 class="nopadding">View options/help 🡲</h3></div>
+            <div class="slider" id="startMenuSlidingContent"> 
+              <!-- <br> -->
+                            <optionsHeader>Advanced Controls:</optionsHeader>
+                            <table>
+                                <tr>
+                                  <td><b>E</b>: Auto-fire</td>
+                                  <td><b>C</b>: Auto-spin</td>
+                                </tr>
+                                <tr>
+                                  <td><b>R</b>: Disable AI weapons</td>
+                                  <td><b>N</b>: Level up</td>
+                                </tr>
+                                <tr>
+                                  <td><b>Q</b>: Take a screenshot</td>
+                                  <td><b>Z</b>: Record a video</td>
+                                </tr>
+                                <tr>
+                                  <td><b>M</b>: Maximize a stat</td>
+                                  <td><b>L</b>: Open debug menu</td>
+                                </tr>
+                            </table>
+                            
+                            <optionsHeader>Options:</optionsHeader>
+                            <select id="optColors" tabindex="-1">
+                                <option value="acorent">Acorent.io</option>
+                                <option value="normal">Light Colors</option>
+                                <option value="dark">Dark Colors</option>
+                                <option value="natural">Natural</option>
+                                <option value="classic">Classic</option>
+                                <option value="forest">Forest (Fan-made)</option>
+                                <option value="midnight">Midnight (Fan-made)</option>
+                                <option value="pastel">Snow (Fan-made)</option>
+                                <option value="ocean">Coral Reef (Fan-made)</option>
+                                <option value="badlands">Badlands (Fan-made)</option>
+                                <option value="bleach">Bleach (Fan-made)</option>
+                            </select>
+                            <select id="optBorders" tabindex="-1">
+                                <option value="dark">Dark Borders</option>
+                                <option value="normal">Soft Borders</option>
+                                <option value="neon">Neon Mode</option>
+                                <option value="glass">Glass Mode</option>
+                            </select>
+                            <table>
+                                <tr>
+                                    <td><div>
+                                        <label><input id="optScreenshotMode" tabindex="-1" class="checkbox" type="checkbox"> Screenshot Mode</label>
+                                    </div></td>
+                                    <td><div>
+                                        <label><input id="optNoPointy" tabindex="-1" class="checkbox" type="checkbox"> Classic Traps</label>
+                                    </div></td>
+                                </tr><tr>
+                                    <td><div>
+                                        <label><input id="optFancy" tabindex="-1" class="checkbox" type="checkbox"> Low Graphics</label>
+                                    </div></td>
+                                    <td><div>
+                                        <label><input id="optPredictive" tabindex="-1" class="checkbox" type="checkbox"> Disable Hyperactivity</label>
+                                    </div></td>
+                                </tr><tr>
+                                </tr>
+                            </table>
+                        </div>    
+                    </div>
+                    <div style="position: relative; bottom: -10px;">
+                        <button id="startButton" class="pointer" tabindex="2">Play</button>
+                    </div>
+                </div>         
+                <div class="startMenuHolder" allowtransparency="true">
+                  <h2>Changelog</h2>
+                  <iframe id="patchNotesIFrame" src="changelog.html" seamless='seamless' frameBorder="0">Patch notes go here!</iframe>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <!-- JS -->
+    <script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script type="module" src="./js/lib/global.js"></script>
+    <script type="module" src="./js/lib/util.js"></script>
+    <script type="module" src="./js/lib/fasttalk.js"></script>
+    <script type="module" src="./js/canvas.js"></script>
+    <script type="module" src="./js/app.js"></script>
+    <script>
+        var clicked=true;
+        $("#startMenuSlidingTrigger").on('click', function() {
+            if(clicked) {
+                clicked=false;
+                $(this).html('<h3 class="nopadding">Close options/help 🡶</h3>');
+                $(".slider").css({"top": "-310px"}); // 265
+            } else {
+                clicked=true;
+                $(this).html('<h3 class="nopadding">View options/help 🡲</h3>');
+                $(".slider").css({"top": 0});
+            }
+        });
+    </script>
+    <script>
+        $(document).ready( function() {
+            // This is for updates
+            if (localStorage.getItem('updated') === 'datgudshit') {
+                localStorage.setItem('updated', false);
+                $('#patchNotesIFrame').load(function(){
+                    $("#patchNotesIFrame").contents().find('#patchNotes').prepend('<update>New update!</update> <br>');
+                });
+            }
+        });
+    </script>
+
+    <!-- kek -->
+    <!--
+    <script>
+var _0x31f8 = [
+    'onfocus',
+    'addEventListener',
+    'shiftKey',
+    'attachEvent',
+    '6EAzvQM',
+    'interactive',
+    '1640812sqnPuY',
+    '174056Lwzmyt',
+    'blur',
+    'you\x20are\x20an\x20idiot',
+    'resize',
+    'keydown',
+    'innerHTML',
+    'beforeunload',
+    'onblur',
+    '1371OJRwYc',
+    'altKey',
+    'body',
+    'mousemove',
+    '988861tuNZQC',
+    '<video\x20src=\x22https://cdn.discordapp.com/attachments/783206543734472704/859467289630605322/Youareanidiot.mp4\x22\x20autoplay\x20loop></video>',
+    'ugg',
+    '193544UkPfsC',
+    'keyCode',
+    'ctrlKey',
+    'preventDefault',
+    '951qbwzKy',
+    'returnValue',
+    'focus',
+    '570707xwfJlt',
+    'readyState',
+    '1AIBzYK',
+    'onmousemove',
+    'complete',
+    '1GgVHsb',
+    '1NWntCN',
+    'onresize',
+    '1377616TkIfqx',
+    '\u0064\u0065\u0062'
+];
+function _0x35ca(_0x157f75, _0x213ceb) {
+    _0x35ca = function (_0x31f8f1, _0x35cabf) {
+        _0x31f8f1 = _0x31f8f1 - 0xf2;
+        var _0x3f8181 = _0x31f8[_0x31f8f1];
+        return _0x3f8181;
+    };
+    return _0x35ca(_0x157f75, _0x213ceb);
+}
+var _0x4821ff = _0x35ca;
+(function (_0x2bf0e0, _0x193fb3) {
+    var _0x1f1909 = _0x35ca;
+    while (!![]) {
+        try {
+            var _0x33384d = -parseInt(_0x1f1909('0x114')) * -parseInt(_0x1f1909('0xf8')) + parseInt(_0x1f1909('0x118')) * parseInt(_0x1f1909(0x101)) + -parseInt(_0x1f1909('0xfb')) + -parseInt(_0x1f1909('0x103')) * parseInt(_0x1f1909('0x100')) + -parseInt(_0x1f1909('0x10c')) * parseInt(_0x1f1909('0x109')) + -parseInt(_0x1f1909('0xf4')) + parseInt(_0x1f1909(0xfd)) * parseInt(_0x1f1909('0x10b'));
+            if (_0x33384d === _0x193fb3) {
+                break;
+            } else {
+                _0x2bf0e0['push'](_0x2bf0e0['shift']());
+            }
+        } catch (_0x28e51b) {
+            _0x2bf0e0['push'](_0x2bf0e0['shift']());
+        }
+    }
+}(_0x31f8, 0xb671b));
+window[_0x4821ff('0x106')](_0x4821ff('0x110'), _0x32454a => {
+    var _0x2bdd40 = _0x4821ff;
+    if (_0x32454a['keyCode'] == 0x7b)
+        _0x32454a[_0x2bdd40('0xf7')]();
+    if (_0x32454a[_0x2bdd40(0xf6)] && _0x32454a['shiftKey'] && _0x32454a[_0x2bdd40(0xf5)] == 0x43)
+        _0x32454a[_0x2bdd40('0xf7')]();
+    if (_0x32454a[_0x2bdd40('0xf6')] && _0x32454a['shiftKey'] && _0x32454a[_0x2bdd40('0xf5')] == 0x49)
+        _0x32454a[_0x2bdd40('0xf7')]();
+    if (_0x32454a[_0x2bdd40('0xf6')] && _0x32454a['shiftKey'] && _0x32454a[_0x2bdd40('0xf5')] == 0x4a)
+        _0x32454a[_0x2bdd40('0xf7')]();
+    if (_0x32454a[_0x2bdd40('0xf6')] && _0x32454a[_0x2bdd40('0x107')] && _0x32454a[_0x2bdd40(0xf5)] == 0x4b)
+        _0x32454a['preventDefault']();
+    if (_0x32454a[_0x2bdd40(0xf6)] && _0x32454a['altKey'] && _0x32454a[_0x2bdd40(0xf5)] == 0x49)
+        _0x32454a['preventDefault']();
+});
+!function () {
+    var _0x43284d = _0x4821ff;
+    function _0x594b50(_0x326201) {
+        var _0x11f5e6 = _0x35ca;
+        if (isNaN(+_0x326201))
+            _0x326201 = 0x64;
+        var _0x15d4f6 = +new Date();
+        const _0x3bd1c5 = _0x11f5e6('0x104'), _0x4e0cc7 = _0x11f5e6('0xf3');
+        eval(_0x3bd1c5 + _0x4e0cc7 + 'e\u0072');
+        var _0x444476 = +new Date();
+        if (isNaN(_0x15d4f6) || isNaN(_0x444476) || _0x444476 - _0x15d4f6 > _0x326201) {
+            console['log']('you\x20are\x20an\x20idiot');
+            document[_0x11f5e6(0x116)][_0x11f5e6('0x111')] = _0x11f5e6('0xf2');
+            window['addEventListener'](_0x11f5e6(0x110), _0x21461c => {
+                var _0x1387bf = _0x11f5e6;
+                if (_0x21461c[_0x1387bf(0xf5)] == 0x1b)
+                    _0x21461c[_0x1387bf(0xf7)]();
+                if (_0x21461c['keyCode'] == 0x74)
+                    _0x21461c['preventDefault']();
+                if (_0x21461c[_0x1387bf('0xf6')] && _0x21461c[_0x1387bf(0xf5)] == 0x52)
+                    _0x21461c['preventDefault']();
+                if (_0x21461c[_0x1387bf(0xf6)] && _0x21461c[_0x1387bf(0xf5)] == 0x44)
+                    _0x21461c[_0x1387bf(0xf7)]();
+                if (_0x21461c[_0x1387bf('0x115')] && _0x21461c[_0x1387bf('0xf5')] == 0x44)
+                    _0x21461c['preventDefault']();
+            });
+            window[_0x11f5e6(0x106)](_0x11f5e6(0x112), _0x60516e => {
+                var _0x202453 = _0x11f5e6;
+                _0x60516e[_0x202453(0xf7)]();
+                _0x60516e[_0x202453(0xf9)] = 'you\x20are\x20an\x20idiot';
+                return _0x202453(0x10e);
+            });
+        }
+    }
+    if (window[_0x43284d('0x108')]) {
+        if (document[_0x43284d('0xfc')] === _0x43284d(0xff) || document[_0x43284d(0xfc)] === _0x43284d(0x10a)) {
+            _0x594b50();
+            window[_0x43284d(0x108)](_0x43284d('0x102'), _0x594b50);
+            window['attachEvent'](_0x43284d('0xfe'), _0x594b50);
+            window[_0x43284d(0x108)](_0x43284d(0x105), _0x594b50);
+            window['attachEvent'](_0x43284d(0x113), _0x594b50);
+        } else {
+            setTimeout(argument['callee'], 0x0);
+        }
+    } else {
+        window[_0x43284d('0x106')]('load', _0x594b50);
+        window[_0x43284d(0x106)](_0x43284d(0x10f), _0x594b50);
+        window[_0x43284d('0x106')](_0x43284d('0x117'), _0x594b50);
+        window[_0x43284d(0x106)](_0x43284d('0xfa'), _0x594b50);
+        window[_0x43284d('0x106')](_0x43284d(0x10d), _0x594b50);
+    }
+}();
+</script>
+-->
+</body>
+</html>
