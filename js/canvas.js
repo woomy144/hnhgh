@@ -1,4 +1,4 @@
-var global = require('./lib/global');
+const global = require('./lib/global');
 
 class Canvas {
     constructor(params) {
