@@ -2,12 +2,13 @@
 /*jshint -W097*/
 /*jshint browser: true*/
 
+"use strict";
+
 // Fundamental requires <3
 var global = {
 /*jslint esversion: 6*/
 /*global require, module, exports, console*/
 /*jshint -W097*/
-"use strict";
 
 module.exports = {
     // Keys and other mathematical constants
