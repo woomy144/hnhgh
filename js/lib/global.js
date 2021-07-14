@@ -1,7 +1,9 @@
 /*jslint esversion: 6*/
 /*global require, module, exports, console*/
 /*jshint -W097*/
-const global = {
+
+
+module.exports = {
     // Keys and other mathematical constants
     KEY_ESC: 27,
     KEY_ENTER: 13,
