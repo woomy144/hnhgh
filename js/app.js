@@ -5,10 +5,7 @@
 "use strict";
 
 // Fundamental requires <3
-import {
-	global
-}
-from './lib/global.js';
+var global = require('./lib/global');
 
 var util = require('./lib/util');
 
