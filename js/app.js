@@ -5,7 +5,7 @@
 "use strict";
 
 // Fundamental requires <3
-const global = require('./lib/global');
+const global = require('./js/lib/global');
 
 var util = require('./lib/util');
 
