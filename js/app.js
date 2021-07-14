@@ -1,7 +1,6 @@
 /*global require, console*/
 /*jshint -W097*/
 /*jshint browser: true*/
-"use strict";
 
 // Fundamental requires <3
 var global = {
